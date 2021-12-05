@@ -11,6 +11,7 @@ class Search extends Component {
         this.setState({ searchText: e.target.value});
     }
 
+    // This function prevents the default behavior and update the query. Also it keeps track of browser history and change the page's data based on the current URL. Clicking the browser's forward and back buttons allows users to navigate through all search history, keeping the URL and fetched data in sync.
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.updateQuery(this.state.searchText);
@@ -19,6 +20,7 @@ class Search extends Component {
         e.currentTarget.reset();
     }
 
+    // This render return what the provided mockup gives as model for the search buttons and add functionality to each of them.
     render () {
         return (
             <form className='search-form' onSubmit={this.handleSubmit}>
